@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Function to dynamically load content into the main container
+        function loadPage(page) {
+            const mainContent = document.getElementById('main-content');
+            fetch(page)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Could not load page: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    mainContent.innerHTML = html;
+                })
+                .catch(error => {
+                    mainContent.innerHTML = `<p>Error loading page: ${error.message}</p>`;
+                });
+        }
+    </script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="#" onclick="loadPage('manage-grants.html')">Manage Grants</a></li>
+                <li><a href="#" onclick="loadPage('sanction-projects.html')">Sanction Projects</a></li>
+                <li><a href="#" onclick="loadPage('monitor-progress.html')">Monitor Progress</a></li>
+                <li><a href="#" onclick="loadPage('analytics.html')">Analytics</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content Area -->
+        <div id="main-content" class="main-content">
+            <h3>Welcome to the Admin Dashboard</h3>
+            <p>Select an option from the sidebar to get started.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,433 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.dark-mode .theme-switcher .slider {
+    background: #555;
+}
+
+body.dark-mode .theme-switcher .slider:before {
+    transform: translateX(25px);
+}
+    /* Add relative positioning to the navbar */
+    nav {
+        position: relative;
+        background-color: #333; /* Adjust background color as needed */
+        padding: 1rem;
+    }
+
+    /* Sliding Theme Toggle inside Navbar */
+    .theme-switcher {
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+    }
+
+    .theme-switcher .slider {
+        position: relative;
+        width: 50px;
+        height: 25px;
+        background: #ccc;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .theme-switcher .slider:before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 21px;
+        height: 21px;
+        background: #fff;
+        border-radius: 50%;
+        transition: transform 0.3s;
+    }
+
+    body.dark-mode .theme-switcher .slider {
+        background: #555;
+    }
+
+    body.dark-mode .theme-switcher .slider:before {
+        transform: translateX(25px);
+    }
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #f5f7fa, #c3cfe2);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Navigation Menu */
+nav {
+    background: #333;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #f0a500;
+}
+
+/* Section Styling */
+section {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, color 0.3s;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+section select, section button {
+    font-size: 1rem;
+    color: #f2f0f0;
+}
+
+section p{
+    font-size: 1rem;
+    color: #1e1e1e;
+}
+
+section ul {
+    list-style: disc inside;
+    margin: 1rem 0;
+    padding-left: 1rem;
+    color: #1e1e1e;
+}
+
+button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #f0a500;
+}
+
+/* Input and Forms */
+textarea, select, input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+button[type="submit"] {
+    display: block;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Dynamic Interactivity */
+#grant-list, #forms-container {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    display: none;
+}
+
+#grant-list.active, #forms-container.active {
+    opacity: 1;
+    display: block;
+}
+
+/* Default Light Mode */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7fa;
+    color: #333;
+}
+
+nav a {
+    color: #fff;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode nav {
+    background: #1e1e1e;
+}
+
+body.dark-mode nav a {
+    color: #bdbdbd;
+}
+
+body.dark-mode footer {
+    background: #1e1e1e;
+    color: #bdbdbd;
+}
+
+body.dark-mode section {
+    background: #1e1e1e;
+    color: #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Announcements Animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Grant Cards */
+.grant-card {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.grant-card:hover {
+    background: #eaeaea;
+}
+
+body.dark-mode .grant-card {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+body.dark-mode section h2,
+body.dark-mode section p,
+body.dark-mode section ul,
+body.dark-mode section li,
+body.dark-mode section select,
+body.dark-mode section button,
+body.dark-mode section a {
+    color: #e0e0e0;
+}
+
+body.dark-mode section input,
+body.dark-mode section textarea {
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode section input::placeholder,
+body.dark-mode section textarea::placeholder {
+    color: #bbb;
+}
+
+/* Style for the search bar container */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Style for the search bar */
+.search-bar {
+    padding: 0.5rem;
+    width: 300px; /* Adjust width as needed */
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style for the search button */
+.search-button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hover effect for the search button */
+.search-button:hover {
+    background-color: #555;
+}
+/*dashboard */
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #4CAF50;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 1rem;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #4CAF50;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.main-content h1 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.main-content p {
+    color: #555;
+}
+
+      /* CSS Code for Scrolling Effect */
+      #announcements {
+        width: 100%;
+        background-color: #333;
+        color: white;
+        padding: 10px 0;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        z-index: 1000;
+    }
+
+    #announcement-text{
+        color: rgb(255, 255, 255);
+    }
+
+    .scrolling-text {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        white-space: nowrap;
+        animation: scroll-left 15s linear infinite;
+    }
+
+    .scrolling-text p {
+        margin: 0;
+        padding: 0;
+    }
+
+    @keyframes scroll-left {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }

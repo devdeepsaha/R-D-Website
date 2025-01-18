@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIS R&D Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+    <!-- Theme Switcher Inside Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#grants">Research Grants</a></li>
+            <li><a href="#rfmo">RFMO</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li id="admin-link" style="display: none;"><a href="dashboard.html">Admin Dashboard</a></li>
+        </ul>
+        <div class="theme-switcher">
+            <div class="slider" onclick="toggleTheme()"></div>
+        </div>
+    </nav>
+    
+
+    <!-- Home Page Section -->
+    <section id="home">
+        <div class="hero-banner">
+            <h1>Welcome to JIS R&D Portal</h1>
+            <p>Your gateway to innovation and collaboration.</p>
+            <input type="text" class="search-bar" placeholder="Search grants, projects...">
+            <button class="search-button" onclick="search()">Search</button>
+        </div>
+        <div class="mission-statement">
+            <h2>Our Mission</h2>
+            <p>To foster cutting-edge research and development across disciplines.</p>
+        </div>
+        <div class="quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#grants">Explore Grants</a></li>
+                <li><a href="#rfmo">Seed Funding</a></li>
+                <li><a href="#contact">Get Support</a></li>
+            </ul>
+        </div>
+        <div id="announcements">
+            <div class="scrolling-text">
+                <p id="announcement-text">Loading announcements...</p>
+            </div>
+        </div>
+    </section>
+
+        <!-- User Registration and Authentication -->
+<!-- User Registration and Authentication -->
+<section id="auth">
+    <h2>User Authentication</h2>
+    <div class="auth-links">
+        <button onclick="showForm('login-form')">Login</button>
+        <button onclick="showForm('registration-form')">Register</button>
+        <!-- Admin Login Button -->
+        <button onclick="showForm('admin-login')">Admin Login</button>
+    </div>
+    <div id="auth-forms">
+        <!-- Login Form -->
+        <div id="login-form" class="auth-form" style="display: none;">
+            <h3>Login</h3>
+            <form>
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" required>
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="registration-form" class="auth-form" style="display: none;">
+            <h3>Register</h3>
+            <form>
+                <label for="register-email">Email:</label>
+                <input type="email" id="register-email" required>
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" required>
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <!-- Admin Login Form -->
+        <div id="admin-login" class="auth-form" style="display: none;">
+            <h3>Admin Login</h3>
+            <form onsubmit="adminLogin(event)">
+                <label for="admin-id">Admin ID:</label>
+                <input type="text" id="admin-id" required>
+                <label for="admin-email">Admin Email:</label>
+                <input type="email" id="admin-email" required>
+                <label for="admin-password">Password:</label>
+                <input type="password" id="admin-password" required>
+                <button type="submit">Admin Login</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Research Grant Projects Section -->
+    <section id="grants">
+        <h2>Research Grant Projects</h2>
+        <div>
+            <label for="grant-filter">Filter by:</label>
+            <select id="grant-filter">
+                <option value="all">All</option>
+                <option value="new">New Grants</option>
+                <option value="ongoing">Ongoing Projects</option>
+                <option value="closed">Closed Grants</option>
+            </select>
+        </div>
+        <div id="grant-list">
+            <!-- Dynamically populated grant details -->
+        </div>
+    </section>
+
+    <!-- RFMO Section -->
+    <section id="rfmo">
+        <h2>RFMO Initiatives</h2>
+        <div class="guidelines">
+            <h3>Seed Funding Guidelines</h3>
+            <a href="#" download>Download Policy Document</a>
+        </div>
+        <div class="forms">
+            <button onclick="openForm('proposal')">Submit Proposal</button>
+            <button onclick="openForm('progress')">Submit Progress Report</button>
+        </div>
+        <div id="forms-container">
+            <!-- Dynamically loaded forms -->
+        </div>
+        <div class="approved-projects">
+            <h3>Approved Projects</h3>
+            <p>Track progress and milestones of funded projects.</p>
+        </div>
+    </section>
+    
+
+    <!-- Contact and Support Section -->
+    <section id="contact">
+        <h2>Contact and Support</h2>
+        <p>For any queries, reach out to us:</p>
+        <ul>
+            <li>Email: <a href="mailto:rfmo@jis.edu">rfmo@jis.edu</a></li>
+            <li>Phone: +91 1234567890</li>
+        </ul>
+        <h3>FAQs</h3>
+        <ul>
+            <li>How to apply for a grant?</li>
+            <li>What is the evaluation process?</li>
+        </ul>
+        <form id="feedback-form">
+            <h3>Feedback Form</h3>
+            <textarea placeholder="Your feedback..."></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2025 JIS R&D Portal. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
